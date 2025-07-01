@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | EssenceGlow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">EssenceGlow</a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="shop.html">Tienda</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="contact.html">Contáctanos</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <button id="wishlist-btn-shop" class="icon-btn" aria-label="Ver Wishlist"><i class="fas fa-heart"></i></button>
+                <button id="cart-btn-shop" class="icon-btn" aria-label="Ver Carrito de Compras"><i class="fas fa-shopping-cart"></i></button>
+                <button id="user-btn-shop" class="icon-btn" aria-label="Acceso de Usuario"><i class="fas fa-user"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="shop-header container">
+            <h1>Nuestros Productos</h1>
+            <div class="filters-search">
+                <input type="text" id="search-bar" placeholder="Buscar productos...">
+                <select id="category-filter">
+                    <option value="all">Todas las Categorías</option>
+                    <option value="skincare">Cuidado Facial</option>
+                    <option value="haircare">Cuidado Capilar</option>
+                    <option value="makeup">Maquillaje</option>
+                </select>
+                <select id="price-filter">
+                    <option value="default">Ordenar por Precio</option>
+                    <option value="low-to-high">Menor a Mayor</option>
+                    <option value="high-to-low">Mayor a Menor</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="all-products container">
+            <div class="product-grid" id="product-list">
+                <div class="product-card">
+                    <a href="product-detail.html?id=1"><img src="assets/images/product-placeholder.jpg" alt="Producto 1" class="product-image"></a>
+                    <h3>Producto de Cuidado Facial</h3>
+                    <p class="product-price">$28.00</p>
+                    <button class="btn add-to-cart-btn" data-product-id="3">Añadir al Carrito</button>
+                    <button class="btn add-to-wishlist-btn" data-product-id="3"><i class="far fa-heart"></i></button>
+                </div>
+                <div class="product-card">
+                    <a href="product-detail.html?id=2"><img src="assets/images/product-placeholder.jpg" alt="Producto 2" class="product-image"></a>
+                    <h3>Champú Nutritivo</h3>
+                    <p class="product-price">$18.00</p>
+                    <button class="btn add-to-cart-btn" data-product-id="4">Añadir al Carrito</button>
+                    <button class="btn add-to-wishlist-btn" data-product-id="4"><i class="far fa-heart"></i></button>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EssenceGlow. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cart-items" class="modal-list">
+                <p class="empty-message">Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">$0.00</span></p>
+                <button class="btn primary-btn full-width">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="wishlist-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Tu Wishlist</h2>
+            <div id="wishlist-items" class="modal-list">
+                <p class="empty-message">Tu wishlist está vacía.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="login-section">
+                <h2>Iniciar Sesión</h2>
+                <form id="login-form">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit" class="btn primary-btn full-width">Entrar</button>
+                </form>
+                <p class="switch-form">¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+            </div>
+            <div id="register-section" style="display:none;">
+                <h2>Registrarse</h2>
+                <form id="register-form">
+                    <label for="register-name">Nombre:</label>
+                    <input type="text" id="register-name" required>
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" required>
+                    <label for="register-password">Contraseña:</label>
+                    <input type="password" id="register-password" required>
+                    <label for="register-confirm-password">Confirmar Contraseña:</label>
+                    <input type="password" id="register-confirm-password" required>
+                    <button type="submit" class="btn primary-btn full-width">Crear Cuenta</button>
+                </form>
+                <p class="switch-form">¿Ya tienes cuenta? <a href="#" id="show-login">Inicia Sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-menu" class="user-dropdown-menu" style="display:none;">
+        <ul>
+            <li><a href="profile.html">Mi Perfil</a></li>
+            <li><a href="#" id="logout-btn">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
